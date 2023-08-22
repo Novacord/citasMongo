@@ -5,4 +5,6 @@ const router = Router()
 
 router.get('/obtener', validate(Pacientes.getPaciente))
 
+router.post('/insertar', validate(Pacientes.postPaciente))
+
 export { router };

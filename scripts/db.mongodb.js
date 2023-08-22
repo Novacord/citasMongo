@@ -10,8 +10,7 @@ db.createCollection("users", {
         "phone",
         "address",
         "email",
-        "genre",
-        "attendant",
+        "genre"
       ],
       properties: {
         ID: {
