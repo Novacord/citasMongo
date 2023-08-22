@@ -6,6 +6,7 @@ db.createCollection("users", {
       required: [
         "ID",
         "names",
+        "age",
         "phone",
         "address",
         "email",
@@ -17,7 +18,10 @@ db.createCollection("users", {
           bsonType: "int",
           description: "ID is required",
         },
-
+        age:{
+          bsonType: "int",
+          description: "age is required",
+        },
         // NAMES
         names: {
           bsonType: "object",
@@ -256,6 +260,7 @@ db.users.insertOne({
     name: "Juan",
     surname: "Pérez",
   },
+  age: 25,
   phone: "1234567890",
   address: "Calle 123",
   email: "juan@gmail.com",
