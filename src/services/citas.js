@@ -39,4 +39,18 @@ export default class Citas {
         const consulta = await quotes.findOne({ "date": req.query.date })
         res.status(200).json({ data: consulta, msg: "consulta exitosa"})
     }
+    static async getCitasDoctorNumber(req, res) {
+        const doctors = db.getInstance().changeCollection('doctors').connect();
+        const id = parseInt(req.params.id);
+        const fechaDeseada = new Date(req.query.date);
+        fechaDeseada.setUTCHours(0, 0, 0, 0);
+        const endDate = new Date(req.query.date);
+        endDate.setUTCHours(23, 59, 59, 999);
+        const consultaQuotes = await quotes.find({"doctor.ID": id,"date": { $gte: fechaDeseada, $lte: endDate }}).toArray();
+        const numeroDeCitas = consultaQuotes.length;
+        res.status(200).json({
+            NumeroDeCitas: numeroDeCitas,
+            msg: "consulta exitosa"
+        });
+    }
 }

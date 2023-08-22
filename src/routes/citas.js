@@ -11,4 +11,6 @@ router.get('/obtener/doctor/:id', validate(Citas.getCitaUserDoctor))
 
 router.get('/obtener/consultorio/:id', validate(Citas.getCitaUserConsultorio))
 
+router.get('/obtener/numeroCitasMedico/:id', validate(Citas.getCitasDoctorNumber))
+
 export { router };
