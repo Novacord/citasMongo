@@ -17,4 +17,12 @@ export default class Citas {
         const consulta = await quotes.findOne({ "doctor.ID": id })
         res.status(200).json({ data: consulta, msg: "consulta exitosa"})
     }
+
+    static async getCitaUserConsultorio(req, res) {
+        const doctors = db.getInstance().changeCollection('doctors').connect()
+        const id = parseInt(req.params.id)
+        const consultaQuotes = await quotes.findOne({ "user.ID": id })
+        const consultaDoctors = await doctors.findOne({ "ID": consultaQuotes.doctor.ID })
+        res.status(200).json({ Quotes: consultaQuotes,Doctor: consultaDoctors, msg: "consulta exitosa"})
+    }
 }
