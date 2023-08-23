@@ -41,7 +41,7 @@
   1. Inicia la aplicación:
 
      ```bash
-     npm start
+     npm run dev
      ```
 
   2. Accede a la API en tu navegador o herramienta de prueba de API en la siguiente dirección:
